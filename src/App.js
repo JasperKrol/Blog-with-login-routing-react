@@ -6,12 +6,12 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import BlogOverzicht from "./pages/Blog-overzicht";
 import Blogposts from "./pages/Blogposts";
-
+import posts from './data/posts.json';
 
 function App() {
   // We houden in de state bij of iemand is "ingelogd" (simpele versie)
   const [isAuthenticated, toggleIsAuthenticated ] = useState(false);
-
+    // console.log(posts);
   return (
     <Router>
         <Topmenu/>
@@ -25,7 +25,9 @@ function App() {
             </Route>
 
             <Route exact path="/blog-overzicht">
-                <BlogOverzicht/>
+                <BlogOverzicht
+                posts = {posts}
+                />
             </Route>
 
             <Route exact path="/blogposts">

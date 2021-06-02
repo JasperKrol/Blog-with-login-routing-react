@@ -60,7 +60,7 @@ nav {
   height: 60px;
 }
 
-ul {
+nav ul {
   list-style-type: none;
   flex-basis: 550px;
   display: flex;
