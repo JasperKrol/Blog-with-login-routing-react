@@ -1,19 +1,23 @@
-import BlogList from "../components/BlogList";
-function BlogOverzicht(props) {
-    // console.log("what are the props", props)
-    const data = props.posts
+// import BlogList from "../components/BlogList";
+import posts from '../data/posts.json';
+import {
+    Link
+} from "react-router-dom";
 
-    // titels omhoog krijgen
-    const titels = data.map(a => a.title)
+function BlogOverzicht() {
+    // // console.log("what are the props", props)
+    // const data = props.posts
+    //
+    // // titels omhoog krijgen
+    // const titels = data.map(a => a.title)
 
     return (
-        <>
-            <h1>Hier komt een overzicht</h1>
-            <BlogList
-                data={data}
-                titles={titels}
-            />
-        </>
+        <div className="blogposts">
+            <div>
+                <h2>Total blogs: {posts.length}</h2>
+                {posts.map(item => <Link to={`/blogposts/${item.id - 1}`}><p>{item.id} {item.title} </p></Link>)}
+            </div>
+        </div>
 
     )
 }
